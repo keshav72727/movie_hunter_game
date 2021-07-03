@@ -35,49 +35,50 @@ class Game {
         }
 
     
-        if (gameState === 1) {
-           /*if (point.authenticate(Movie1,answers.submit.value())) {
-               score ++
-           }*/ 
-        }
+        
     }
-    static getAnswer()
-    {
-        var playerAnswer = database.ref('movieName');
-        playerAnswer.on("value",(data)=>{
-            //allMovieNames = data.val();
-        })
     
-    }
     
     
 
     play(){
         form.hide();
-        //textSize(25);
-        //text("Game Start",120,100);
-        
+
         Player.getPlayerInfo();
         
         player.getPlayerAtEnd();
 
-        Game.getAnswer();
+        Player.fetchData();
 
         background(movie1);
 
         text(this.score,600,300);
         
-        
+        answers.hintButton.mousePressed(()=>
+        {
+            answers.ans.hide();
+            answers.submit.hide();
+            
+            background(hint1);
+        })
 
         
-        /*if(allMovieNames !== undefined){  
-            for(var AllmovieAns in allMovieNames){
-                if(player.answer === AllmovieAns){
-                    score = score+50;
+        if(allMovieNames !== undefined && allPlayers !== undefined){ 
+            //var index1 = 0 
+            //var index2 = 0
+            for(var AllmovieAns in allMovieNames)
+            {
+                //index1 = index1 + 1;
+                for (var plr in allPlayers)
+                {
+                    //index2 = index2 + 1;
+                    if(player.answer === AllmovieAns){
+                        score = score+50;
+                    }
                 }
-
             }
-        }*/
+        }
+        
         drawSprites();
         
     }

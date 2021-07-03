@@ -5,6 +5,7 @@ class Player{
         this.rank = null;
         this.score = 0;
         this.answer = null;
+        this.hint = 2;
     }
 
     getCount(){
@@ -35,7 +36,15 @@ class Player{
         })
     }
 
-    
+    static fetchData()
+    {
+        var MovieRef = database.ref('Answers');
+        MovieRef.on("value",function(data){
+            allMovieNames = data.val();
+        })
+    }
+
+
     update(){
         var playerIndex = "Players/Player"+this.index;
         database.ref(playerIndex).set({

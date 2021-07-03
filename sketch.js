@@ -7,6 +7,8 @@ var game;
 var allPlayers;
 var movie1;
 var answers;
+var allMovieNames;
+var hint1;
 
 const Movie1 = "MOTHER INDIA"
 const Movie2 = "SINGH IS KING"
@@ -14,6 +16,7 @@ const Movie2 = "SINGH IS KING"
 function preload(){
 movie1 = loadImage("movies/1.png");
   bg_image = loadImage("movies/MOVIE HUNTER.png");
+  hint1 = loadImage("movies/2.png");
 }
 
 function setup(){
@@ -43,5 +46,4 @@ function draw(){
   }
   console.log(gameState);
 }
-
 
